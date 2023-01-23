@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Bank card info</string>
+
+    <!-- current_card_fragment.xml -->
+    <string name="binLabel">Enter the first 4–8 digits of your bank card</string>
+    <string name="binInputHint">Bank card number</string>
+    <string name="binInputHelper">The first 4–8 digits of the bank card</string>
+    <string name="clearInput">Clear input</string>
+    <string name="saveCard">Save card</string>
+    <string name="currentCardInfoLabel">Information about current card</string>
+
+    <!-- saved_cards_fragment.xml -->
+    <string name="savedCardsTitle">Local saved bank cards</string>
+    <string name="removeAllCards">Remove all local saved cards</string>
+
+    <!-- card_info.xml -->
+    <string name="schemeLabel">Scheme / Network</string>
+    <string name="typeLabel">Type</string>
+    <string name="debit"><b>Debit</b> / Credit</string>
+    <string name="credit">Debit / <b>Credit</b></string>
+    <string name="bankLabel">Bank</string>
+    <string name="bankNameAndCity">%1$s, %2$s</string>
+    <string name="brandLabel">Brand</string>
+    <string name="prepaidLabel">Prepaid</string>
+    <string name="yes"><b>Yes</b> / No</string>
+    <string name="no">Yes / <b>No</b></string>
+    <string name="cardNumberLabel">Card number</string>
+    <string name="lengthLabel">Length</string>
+    <string name="luhnLabel">Luhn</string>
+    <string name="countryLabel">Country</string>
+    <string name="countryIconAndName">%1$s %2$s</string>
+    <string name="countryNumber">Number: &lt;b>%1$d&lt;/b></string>
+    <string name="countryShortcut">Shortcut: &lt;b>%1$s&lt;/b></string>
+    <string name="countryCurrency">Currency: &lt;b>%1$s&lt;/b></string>
+    <string name="countryLatitudeAndLongitude">(latitude: &lt;b>%1$d&lt;/b>, longitude: &lt;b>%2$d&lt;/b>)</string>
 </resources>

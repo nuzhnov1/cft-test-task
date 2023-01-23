@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/layoutPadding"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginBetweenItems"
+        android:text="@string/savedCardsTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/removeAllCards"
+        style="?attr/materialIconButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginBetweenItems"
+        app:icon="@drawable/ic_baseline_delete_24"
+        android:text="@string/removeAllCards" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginBetweenItems"
+        app:dividerThickness="@dimen/dividerBigThickness" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedCardsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/card_info" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        android:layout_marginBottom="@dimen/marginBetweenItems"
+        app:dividerThickness="@dimen/dividerBigThickness" />
+</LinearLayout>
