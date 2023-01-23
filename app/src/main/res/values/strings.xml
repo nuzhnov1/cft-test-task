@@ -2,7 +2,7 @@
     <string name="app_name">Bank card info</string>
 
     <!-- current_card_fragment.xml -->
-    <string name="binLabel">Enter the first 4–8 digits of your bank card</string>
+    <string name="binLabel">BIN number of bank card</string>
     <string name="binInputHint">Bank card number</string>
     <string name="binInputHelper">The first 4–8 digits of the bank card</string>
     <string name="clearInput">Clear input</string>
