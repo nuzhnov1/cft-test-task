@@ -13,5 +13,4 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App.DayNight.NoActionBar"
         tools:targetApi="33" />
-
 </manifest>

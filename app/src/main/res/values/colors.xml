@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Theme colors -->
     <color name="md_theme_light_primary">#86458B</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#FFD6FB</color>
@@ -60,4 +61,6 @@
     <color name="md_theme_dark_surfaceTint">#F9ACFA</color>
     <color name="md_theme_dark_outlineVariant">#4D444C</color>
     <color name="md_theme_dark_scrim">#000000</color>
+
+    <color name="ic_launcher_background">#3D62DC</color>
 </resources>
