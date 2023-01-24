@@ -9,7 +9,7 @@ class CardRemoteDataSource(
     private val cardApi: ICardApi,
     private val ioDispatcher: CoroutineDispatcher
 ) {
-    suspend fun getCardByBin(bin: Int): CardApiModel? = withContext(ioDispatcher) {
+    suspend fun getCardByBin(bin: Int): Result<CardApiModel?> = withContext(ioDispatcher) {
         cardApi.getCardByBin(bin)
     }
 }

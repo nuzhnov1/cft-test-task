@@ -23,4 +23,7 @@ interface ICardDao {
 
     @Delete
     suspend fun deleteAll(vararg cardEntity: CardEntity)
+
+    @Query("DELETE * FROM Card")
+    suspend fun clear()
 }

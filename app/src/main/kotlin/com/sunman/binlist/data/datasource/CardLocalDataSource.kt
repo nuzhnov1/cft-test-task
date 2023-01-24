@@ -20,6 +20,8 @@ class CardLocalDataSource(
         cardDao.getByBin(bin)
     }
 
+    suspend fun isCardExist(bin: Int) = getCardByBin(bin) != null
+
     fun getAllCards(): Flow<List<CardEntityModel>> = cardDao
         .getAll()
         .distinctUntilChanged()
@@ -62,5 +64,11 @@ class CardLocalDataSource(
         if (bankName != null && bankDao.getUsagesCount(bankName) == 0) {
             bankDao.deleteAll(card.bankEntity)
         }
+    }
+
+    suspend fun removeAllCards() = withContext(ioDispatcher) {
+        cardDao.clear()
+        countryDao.clear()
+        bankDao.clear()
     }
 }

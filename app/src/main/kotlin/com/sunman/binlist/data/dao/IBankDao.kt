@@ -16,4 +16,7 @@ interface IBankDao {
 
     @Delete
     suspend fun deleteAll(vararg bankEntity: BankEntity)
+
+    @Query("DELETE * FROM Bank")
+    suspend fun clear()
 }

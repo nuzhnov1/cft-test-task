@@ -6,7 +6,6 @@ import com.sunman.binlist.data.mapper.toEntity
 import com.sunman.binlist.data.mapper.toModel
 import com.sunman.binlist.data.model.CardEntityModel
 import com.sunman.binlist.domain.model.Card
-import com.sunman.binlist.domain.repository.IRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
@@ -25,25 +24,38 @@ class RepositoryImpl(
         .map { cardsList -> cardsList.map(CardEntityModel::toModel) }
 
 
-    override suspend fun getCardByBin(bin: Int): Card? = mutex.withLock {
+    override suspend fun getCardByBin(bin: Int): Result<Card?> = mutex.withLock {
         if ((currentCard == null) || (currentCard != null && currentCard?.bin != bin)) {
-            currentCard = cardLocalDataSource.getCardByBin(bin)
-                ?.toModel()
-                ?: cardRemoteDataSource.getCardByBin(bin)?.toModel(bin)
-        }
+            val localResult = cardLocalDataSource.getCardByBin(bin)
 
-        currentCard
+            if (localResult != null) {
+                currentCard = localResult.toModel()
+                Result.success(currentCard)
+            } else {
+                val remoteResult = cardRemoteDataSource.getCardByBin(bin)
+
+                remoteResult.map {
+                    currentCard = it?.toModel(bin)
+                    currentCard
+                }
+            }
+        } else {
+            Result.success(currentCard)
+        }
     }
 
     override suspend fun saveCurrentCard() = mutex.withLock {
-        currentCard?.toEntity()?.apply {
-            if (getCardByBin(cardEntity.bin) != null) {
-                cardLocalDataSource.updateCard(this)
+        if (currentCard != null) {
+            val entity = currentCard!!.toEntity()
+            val bin = entity.cardEntity.bin
+
+            if (cardLocalDataSource.isCardExist(bin)) {
+                cardLocalDataSource.updateCard(entity)
             } else {
-                cardLocalDataSource.insertCard(this)
+                cardLocalDataSource.insertCard(entity)
             }
         }
-
-        Unit
     }
+
+    override suspend fun removeAllCards() = cardLocalDataSource.removeAllCards()
 }

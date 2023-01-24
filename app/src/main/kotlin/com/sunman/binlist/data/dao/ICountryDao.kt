@@ -16,4 +16,7 @@ interface ICountryDao {
 
     @Delete
     suspend fun deleteAll(vararg countryEntity: CountryEntity)
+
+    @Query("DELETE * FROM Country")
+    suspend fun clear()
 }
