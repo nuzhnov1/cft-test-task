@@ -5,7 +5,9 @@
     <string name="binLabel">BIN number of bank card</string>
     <string name="binInputHint">Bank card number</string>
     <string name="binInputHelper">The first 4–8 digits of the bank card</string>
+    <string name="binErrorMessage">The entered value is not a number</string>
     <string name="clearInput">Clear input</string>
+    <string name="searchCard">Search card</string>
     <string name="saveCard">Save card</string>
     <string name="currentCardInfoLabel">Information about current card</string>
 
@@ -29,8 +31,8 @@
     <string name="luhnLabel">Luhn</string>
     <string name="countryLabel">Country</string>
     <string name="countryIconAndName">%1$s %2$s</string>
-    <string name="countryNumber">Number: &lt;b>%1$d&lt;/b></string>
+    <string name="countryLatitudeAndLongitude">(latitude: &lt;b>%1$s&lt;/b>, longitude: &lt;b>%2$s&lt;/b>)</string>
+    <string name="countryNumber">Number: &lt;b>%1$s&lt;/b></string>
     <string name="countryShortcut">Shortcut: &lt;b>%1$s&lt;/b></string>
     <string name="countryCurrency">Currency: &lt;b>%1$s&lt;/b></string>
-    <string name="countryLatitudeAndLongitude">(latitude: &lt;b>%1$d&lt;/b>, longitude: &lt;b>%2$d&lt;/b>)</string>
 </resources>

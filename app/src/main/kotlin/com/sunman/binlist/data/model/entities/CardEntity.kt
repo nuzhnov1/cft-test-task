@@ -7,7 +7,7 @@ import com.sunman.binlist.domain.model.Type
 
 @Entity(tableName = "Card")
 data class CardEntity(
-    @PrimaryKey val bin: Int,
+    @PrimaryKey val bin: String,
     @Embedded(prefix = "Number_") val number: NumberEntity?,
     val scheme: String?,
     val type: Type?,

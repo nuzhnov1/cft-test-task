@@ -16,11 +16,11 @@ class CardLocalDataSource(
     private val bankDao: IBankDao,
     private val ioDispatcher: CoroutineDispatcher
 ) {
-    suspend fun getCardByBin(bin: Int): CardEntityModel? = withContext(ioDispatcher) {
+    suspend fun getCardByBin(bin: String): CardEntityModel? = withContext(ioDispatcher) {
         cardDao.getByBin(bin)
     }
 
-    suspend fun isCardExist(bin: Int) = getCardByBin(bin) != null
+    suspend fun isCardExist(bin: String) = getCardByBin(bin) != null
 
     fun getAllCards(): Flow<List<CardEntityModel>> = cardDao
         .getAll()

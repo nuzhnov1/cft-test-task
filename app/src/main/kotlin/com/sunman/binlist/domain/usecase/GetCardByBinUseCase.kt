@@ -5,5 +5,5 @@ import com.sunman.binlist.data.repository.IRepository
 class GetCardByBinUseCase(
     private val repository: IRepository
 ) {
-    suspend operator fun invoke(bin: Int) = repository.getCardByBin(bin)
+    suspend operator fun invoke(bin: String) = repository.getCardByBin(bin)
 }

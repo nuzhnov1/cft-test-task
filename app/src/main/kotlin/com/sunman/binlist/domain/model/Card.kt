@@ -1,7 +1,7 @@
 package com.sunman.binlist.domain.model
 
 data class Card(
-    val bin: Int,
+    val bin: String,
     val number: Number?,
     val scheme: String?,
     val type: Type?,

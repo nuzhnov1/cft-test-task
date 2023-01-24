@@ -24,7 +24,7 @@ class RepositoryImpl(
         .map { cardsList -> cardsList.map(CardEntityModel::toModel) }
 
 
-    override suspend fun getCardByBin(bin: Int): Result<Card?> = mutex.withLock {
+    override suspend fun getCardByBin(bin: String): Result<Card?> = mutex.withLock {
         if ((currentCard == null) || (currentCard != null && currentCard?.bin != bin)) {
             val localResult = cardLocalDataSource.getCardByBin(bin)
 

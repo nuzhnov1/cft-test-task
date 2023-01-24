@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface IRepository {
     val savedCards: Flow<List<Card>>
 
-    suspend fun getCardByBin(bin: Int): Result<Card?>
+    suspend fun getCardByBin(bin: String): Result<Card?>
     suspend fun saveCurrentCard()
     suspend fun removeAllCards()
 }

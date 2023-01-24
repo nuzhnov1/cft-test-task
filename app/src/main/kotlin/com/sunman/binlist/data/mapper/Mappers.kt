@@ -52,7 +52,7 @@ fun Bank.toEntity() = BankEntity(
 )
 
 
-fun CardApiModel.toModel(bin: Int) = Card(
+fun CardApiModel.toModel(bin: String) = Card(
     bin = bin,
     number = number?.toModel(),
     scheme = scheme,

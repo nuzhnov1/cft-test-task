@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/layoutPadding"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:padding="@dimen/layoutPadding">
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/marginBetweenItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:textAppearance="?attr/textAppearanceTitleLarge"
         android:text="@string/savedCardsTitle" />
 
@@ -20,26 +21,41 @@
         style="?attr/materialIconButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/marginBetweenItems"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
         app:icon="@drawable/ic_baseline_delete_24"
         android:text="@string/removeAllCards" />
 
     <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/topDivider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/marginBetweenItems"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/removeAllCards"
         app:dividerThickness="@dimen/dividerBigThickness" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/savedCardsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topDivider"
         tools:listitem="@layout/card_info" />
 
     <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/bottomDivider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginBetweenItems"
         android:layout_marginBottom="@dimen/marginBetweenItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/savedCardsList"
         app:dividerThickness="@dimen/dividerBigThickness" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

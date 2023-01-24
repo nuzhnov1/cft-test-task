@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface ICardDao {
     @Transaction
     @Query("SELECT * FROM Card WHERE id = :id")
-    suspend fun getByBin(bin: Int): CardEntityModel?
+    suspend fun getByBin(bin: String): CardEntityModel?
 
     @Transaction
     @Query("SELECT * FROM Card")

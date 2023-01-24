@@ -2,27 +2,35 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.sunman.binlist.presentation.fragment.CurrentCardFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/layoutPadding"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:padding="@dimen/layoutPadding">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceTitleLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:text="@string/binLabel" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/binNumberField"
             style="?attr/textInputFilledDenseStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
             app:startIconDrawable="@drawable/ic_baseline_account_balance_24"
             app:startIconContentDescription="@string/binInputHint"
             android:hint="@string/binInputHint"
@@ -41,34 +49,70 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchButton"
+            style="?attr/materialIconButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/addButton"
+            app:layout_constraintTop_toBottomOf="@id/binNumberField"
+            app:icon="@drawable/ic_baseline_search_24"
+            android:text="@string/searchCard" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addButton"
             style="?attr/materialIconButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toEndOf="@id/searchButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/searchButton"
             app:icon="@drawable/ic_baseline_save_24"
             android:text="@string/saveCard" />
 
         <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/topDivider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchButton"
             app:dividerThickness="@dimen/dividerBigThickness" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/infoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginBetweenItems"
             android:layout_marginBottom="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topDivider"
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:text="@string/currentCardInfoLabel" />
 
-        <include layout="@layout/card_info" />
+        <include
+            android:id="@+id/cardInfo"
+            layout="@layout/card_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/infoTitle" />
 
         <com.google.android.material.divider.MaterialDivider
+            android:id="@id/bottomDivider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginBetweenItems"
             android:layout_marginBottom="@dimen/marginBetweenItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardInfo"
             app:dividerThickness="@dimen/dividerBigThickness" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
