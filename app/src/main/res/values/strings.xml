@@ -11,6 +11,20 @@
     <string name="saveCard">Save card</string>
     <string name="currentCardInfoLabel">Information about current card</string>
 
+    <!-- Errors -->
+    <string name="http400Error">Error: bad request</string>
+    <string name="http401Error">Error: unauthorized request</string>
+    <string name="http403Error">Error: forbidden request</string>
+    <string name="http429Error">Error: the limit of requests to the service has been exceeded</string>
+    <string name="http500Error">Error: internal service error</string>
+    <string name="http502Error">Error: bad gateway</string>
+    <string name="http503Error">Error: service unavailable</string>
+    <string name="http504Error">Error: gateway timeout</string>
+    <string name="httpOtherError">Error: problem occurred with http connection. Error message: %1$s</string>
+    <string name="invalidResponseError">Error: invalid response</string>
+    <string name="networkError">Error: problem occurred with network connection. Error message: %1$s</string>
+    <string name="otherError">Error: %1$s</string>
+
     <!-- saved_cards_fragment.xml -->
     <string name="savedCardsTitle">Local saved bank cards</string>
     <string name="removeAllCards">Remove all local saved cards</string>

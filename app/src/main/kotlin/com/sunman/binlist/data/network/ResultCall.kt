@@ -15,14 +15,9 @@ class ResultCall<T>(private val delegate: Call<T>) : Call<Result<T?>> {
     )
 
     override fun isExecuted() = delegate.isExecuted
-
     override fun cancel() = delegate.cancel()
-
     override fun isCanceled() = delegate.isCanceled
-
     override fun clone(): Call<Result<T?>> = ResultCall(delegate.clone())
-
     override fun request(): Request = delegate.request()
-
     override fun timeout(): Timeout = delegate.timeout()
 }
