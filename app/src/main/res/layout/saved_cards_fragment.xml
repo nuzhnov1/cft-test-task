@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/layoutPadding">
+    android:padding="@dimen/layoutPadding"
+    tools:context="com.sunman.binlist.presentation.fragment.SavedCardsFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title"
@@ -46,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topDivider"
-        tools:listitem="@layout/card_info" />
+        tools:listitem="@layout/saved_card" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/bottomDivider"
