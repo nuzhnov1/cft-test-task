@@ -1,6 +1,8 @@
 package com.sunman.binlist.presentation.util
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.text.Html
 import com.sunman.binlist.R
@@ -39,7 +41,7 @@ private fun CardInfoBinding.setNumber(number: Number?, context: Context) {
 
 private fun CardInfoBinding.setCountry(country: Country?, context: Context) {
     val countryIconAndNameString: String?
-    val latitudeAndLongitudeString: String
+    val coordinatesString: String
     val numberString: String
     val shortcutString: String
     val currencyString: String
@@ -51,8 +53,8 @@ private fun CardInfoBinding.setCountry(country: Country?, context: Context) {
             country.name
         )
 
-        latitudeAndLongitudeString = context.getString(
-            R.string.countryLatitudeAndLongitude,
+        coordinatesString = context.getString(
+            R.string.countryCoordinates,
             country.latitude.toString(),
             country.longitude.toString()
         )
@@ -63,8 +65,8 @@ private fun CardInfoBinding.setCountry(country: Country?, context: Context) {
     } else {
         countryIconAndNameString = null
 
-        latitudeAndLongitudeString = context.getString(
-            R.string.countryLatitudeAndLongitude, "", ""
+        coordinatesString = context.getString(
+            R.string.countryCoordinates, "", ""
         )
 
         numberString = context.getString(R.string.countryNumber, "")
@@ -75,19 +77,23 @@ private fun CardInfoBinding.setCountry(country: Country?, context: Context) {
     countryIconAndName.text = countryIconAndNameString
 
     if (Build.VERSION.SDK_INT < 24) {
-        countryLatitudeAndLongitude.text = Html.fromHtml(latitudeAndLongitudeString)
+        countryCoordinates.text = Html.fromHtml(coordinatesString)
         countryNumber.text = Html.fromHtml(numberString)
         countryShortcut.text = Html.fromHtml(shortcutString)
         countryCurrency.text = Html.fromHtml(currencyString)
     } else {
-        countryLatitudeAndLongitude.text = Html.fromHtml(
-            latitudeAndLongitudeString,
+        countryCoordinates.text = Html.fromHtml(
+            coordinatesString,
             Html.FROM_HTML_MODE_COMPACT
         )
 
         countryNumber.text = Html.fromHtml(numberString, Html.FROM_HTML_MODE_COMPACT)
         countryShortcut.text = Html.fromHtml(shortcutString, Html.FROM_HTML_MODE_COMPACT)
         countryCurrency.text = Html.fromHtml(currencyString, Html.FROM_HTML_MODE_COMPACT)
+    }
+
+    country?.apply {
+        countryCoordinates.setOnClickListener { onCoordinatesClick(latitude, longitude) }
     }
 }
 
@@ -98,4 +104,15 @@ private fun CardInfoBinding.setBank(bank: Bank?, context: Context) {
 
     bankUrl.text = bank?.url
     bankPhone.text = bank?.phone
+}
+
+private fun CardInfoBinding.onCoordinatesClick(latitude: Int, longitude: Int) {
+    val context = root.context
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse("geo:$latitude,$longitude")
+    }
+
+    if (intent.resolveActivity(context.packageManager) != null) {
+        context.startActivity(intent)
+    }
 }

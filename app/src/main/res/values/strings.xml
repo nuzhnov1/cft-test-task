@@ -28,6 +28,10 @@
     <!-- saved_cards_fragment.xml -->
     <string name="savedCardsTitle">Local saved bank cards</string>
     <string name="removeAllCards">Remove all local saved cards</string>
+    <string name="warningTitle">Confirm your actions</string>
+    <string name="warningMessage">Are you sure to want remove all saved cards?</string>
+    <string name="confirmRemoving">Remove</string>
+    <string name="cancelRemoving">Cancel</string>
 
     <!-- card_info.xml -->
     <string name="schemeLabel">Scheme / Network</string>
@@ -45,7 +49,7 @@
     <string name="luhnLabel">Luhn</string>
     <string name="countryLabel">Country</string>
     <string name="countryIconAndName">%1$s %2$s</string>
-    <string name="countryLatitudeAndLongitude">(latitude: &lt;b>%1$s&lt;/b>, longitude: &lt;b>%2$s&lt;/b>)</string>
+    <string name="countryCoordinates">(latitude: &lt;b>%1$s&lt;/b>, longitude: &lt;b>%2$s&lt;/b>)</string>
     <string name="countryNumber">Number: &lt;b>%1$s&lt;/b></string>
     <string name="countryShortcut">Shortcut: &lt;b>%1$s&lt;/b></string>
     <string name="countryCurrency">Currency: &lt;b>%1$s&lt;/b></string>
