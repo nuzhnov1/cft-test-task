@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Bank card info</string>
 
+    <!-- activity_main.xml -->
+    <string name="tabLayoutDescription">Current tab</string>
+    <string name="currentCardFragmentTitle">Current card</string>
+    <string name="savedCardsFragmentTitle">Local saved cards</string>
+
     <!-- current_card_fragment.xml -->
     <string name="binLabel">BIN number of bank card</string>
     <string name="binInputHint">Bank card number</string>

@@ -9,8 +9,10 @@
         <entry key="app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_warning_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.187" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/card_info.xml" value="0.4" />
         <entry key="app/src/main/res/layout/current_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/current_card_fragment.xml" value="0.32407407407407407" />
