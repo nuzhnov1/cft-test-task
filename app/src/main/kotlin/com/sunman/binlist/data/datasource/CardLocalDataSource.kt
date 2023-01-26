@@ -4,17 +4,19 @@ import com.sunman.binlist.data.dao.IBankDao
 import com.sunman.binlist.data.dao.ICountryDao
 import com.sunman.binlist.data.dao.ICardDao
 import com.sunman.binlist.data.model.CardEntityModel
+import com.sunman.binlist.di.annotations.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class CardLocalDataSource(
+class CardLocalDataSource @Inject constructor(
     private val cardDao: ICardDao,
     private val countryDao: ICountryDao,
     private val bankDao: IBankDao,
-    private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
     suspend fun getCardByBin(bin: String): CardEntityModel? = withContext(ioDispatcher) {
         cardDao.getByBin(bin)

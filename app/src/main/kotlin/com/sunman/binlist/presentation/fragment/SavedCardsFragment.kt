@@ -15,7 +15,11 @@ import com.sunman.binlist.databinding.SavedCardsFragmentBinding
 import com.sunman.binlist.domain.model.Card
 import com.sunman.binlist.presentation.adapter.CardAdapter
 import com.sunman.binlist.presentation.viewmodel.CardViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
 
+@WithFragmentBindings
+@AndroidEntryPoint
 class SavedCardsFragment : Fragment() {
     private var _binding: SavedCardsFragmentBinding? = null
     private val binding get() = _binding!!

@@ -1,8 +1,9 @@
 package com.sunman.binlist.domain.usecase
 
 import com.sunman.binlist.data.repository.IRepository
+import javax.inject.Inject
 
-class GetCardByBinUseCase(
+class GetCardByBinUseCase @Inject constructor(
     private val repository: IRepository
 ) {
     suspend operator fun invoke(bin: String) = repository.getCardByBin(bin)

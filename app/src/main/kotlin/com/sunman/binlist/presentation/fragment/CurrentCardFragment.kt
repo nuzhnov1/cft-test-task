@@ -15,7 +15,11 @@ import com.sunman.binlist.presentation.util.isNumber
 import com.sunman.binlist.presentation.util.setCard
 import com.sunman.binlist.presentation.util.toString
 import com.sunman.binlist.presentation.viewmodel.CardViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
 
+@WithFragmentBindings
+@AndroidEntryPoint
 class CurrentCardFragment : Fragment() {
     private var _binding: CurrentCardFragmentBinding? = null
     private val binding get() = _binding!!

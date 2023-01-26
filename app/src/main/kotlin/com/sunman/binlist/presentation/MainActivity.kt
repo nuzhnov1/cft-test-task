@@ -11,7 +11,9 @@ import com.sunman.binlist.R
 import com.sunman.binlist.databinding.ActivityMainBinding
 import com.sunman.binlist.presentation.fragment.CurrentCardFragment
 import com.sunman.binlist.presentation.fragment.SavedCardsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +51,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    class FragmentViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
+    private class FragmentViewPagerAdapter(activity: FragmentActivity)
+        : FragmentStateAdapter(activity) {
+
         override fun getItemCount() = 2
 
         override fun createFragment(position: Int) = when (position) {
