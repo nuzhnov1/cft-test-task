@@ -9,11 +9,13 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.sunman.binlist"
+        applicationId = "com.nuzhnov.bankcard"
         minSdk = 19
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,7 +26,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -56,6 +58,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.google.dagger:hilt-android:2.44")
+    // For Android API level < 21
+    implementation("androidx.multidex:multidex:2.0.1")
 
     kapt("androidx.room:room-compiler:2.5.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
