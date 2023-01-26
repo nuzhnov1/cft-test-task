@@ -17,9 +17,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/card_info.xml" value="0.4" />
         <entry key="app/src/main/res/layout/current_card.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/current_card_fragment.xml" value="0.32407407407407407" />
+        <entry key="app/src/main/res/layout/current_card_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/saved_card.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/saved_cards_fragment.xml" value="0.22364217252396165" />
+        <entry key="app/src/main/res/layout/saved_cards_fragment.xml" value="0.5" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2005" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2005" />
       </map>

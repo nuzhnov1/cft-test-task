@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val tabLayout = binding.tabLayout
-        val viewPager = binding.pager
+        val viewPager = binding.viewPager
 
         viewPager.adapter = FragmentViewPagerAdapter(this)
         TabLayoutMediator(

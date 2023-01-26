@@ -1,4 +1,4 @@
-package com.sunman.binlist.data.network.adapters
+package com.sunman.binlist.data.adapter
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson

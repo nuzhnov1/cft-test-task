@@ -1,10 +1,9 @@
 package com.sunman.binlist.di
 
-import com.sunman.binlist.data.network.adapters.CardTypeAdapter
+import com.sunman.binlist.data.adapter.CardTypeAdapter
 import com.sunman.binlist.configuration.SERVICE_URL
 import com.squareup.moshi.Moshi
 import com.sunman.binlist.data.api.ICardApi
-import com.sunman.binlist.data.network.ResultCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +23,6 @@ interface NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(moshi: Moshi): Retrofit = Retrofit.Builder()
-        .addCallAdapterFactory(ResultCallAdapterFactory())
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(SERVICE_URL)
         .build()

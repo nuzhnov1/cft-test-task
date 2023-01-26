@@ -8,5 +8,5 @@ import retrofit2.http.Path
 interface ICardApi {
     @Headers("Accept-Version: 3")
     @GET("{bin}")
-    suspend fun getCardByBin(@Path("bin") bin: String): Result<CardApiModel?>
+    suspend fun getCardByBin(@Path("bin") bin: String): CardApiModel?
 }

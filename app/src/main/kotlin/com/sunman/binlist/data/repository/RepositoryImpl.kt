@@ -26,13 +26,17 @@ class RepositoryImpl @Inject constructor(
 
 
     override suspend fun getCardByBin(bin: String): Result<Card?> = mutex.withLock {
+        // If a new card has been requested
         if ((currentCard == null) || (currentCard != null && currentCard?.bin != bin)) {
+            // Looking bank card among the previously saved ones
             val localResult = cardLocalDataSource.getCardByBin(bin)
 
             if (localResult != null) {
                 currentCard = localResult.toModel()
                 Result.success(currentCard)
             } else {
+                // If bank card was not founded among the previously saved ones
+                // then making request to the service
                 val remoteResult = cardRemoteDataSource.getCardByBin(bin)
 
                 remoteResult.map {
