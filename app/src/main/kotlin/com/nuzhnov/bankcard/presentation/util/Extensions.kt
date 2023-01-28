@@ -6,7 +6,7 @@ import android.text.Html
 import android.text.Spanned
 import androidx.annotation.StringRes
 import com.nuzhnov.bankcard.R
-import com.nuzhnov.bankcard.domain.model.*
+import com.nuzhnov.bankcard.domain.model.Type
 
 
 fun <T> T?.toString(context: Context) = when (this) {

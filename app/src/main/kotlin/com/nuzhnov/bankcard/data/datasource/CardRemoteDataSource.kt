@@ -1,8 +1,8 @@
 package com.nuzhnov.bankcard.data.datasource
 
 import com.nuzhnov.bankcard.data.api.ICardApi
-import com.nuzhnov.bankcard.data.model.CardApiModel
 import com.nuzhnov.bankcard.data.api.safeApiCall
+import com.nuzhnov.bankcard.data.model.CardApiModel
 import com.nuzhnov.bankcard.di.annotation.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import retrofit2.HttpException

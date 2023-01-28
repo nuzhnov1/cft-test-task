@@ -1,8 +1,8 @@
 package com.nuzhnov.bankcard.data.dao
 
 import androidx.room.*
-import com.nuzhnov.bankcard.data.model.entities.CardEntity
 import com.nuzhnov.bankcard.data.model.CardEntityModel
+import com.nuzhnov.bankcard.data.model.entities.CardEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private class FragmentViewPagerAdapter(activity: FragmentActivity)
-        : FragmentStateAdapter(activity) {
+    private class FragmentViewPagerAdapter(activity: FragmentActivity) :
+        FragmentStateAdapter(activity) {
 
         override fun getItemCount() = 2
 

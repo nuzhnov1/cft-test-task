@@ -1,18 +1,18 @@
 package com.nuzhnov.bankcard.data.mapper
 
 import com.nuzhnov.bankcard.data.model.CardApiModel
-import com.nuzhnov.bankcard.data.model.api.NumberApiModel
-import com.nuzhnov.bankcard.data.model.api.CountryApiModel
-import com.nuzhnov.bankcard.data.model.api.BankApiModel
 import com.nuzhnov.bankcard.data.model.CardEntityModel
-import com.nuzhnov.bankcard.data.model.entities.NumberEntity
-import com.nuzhnov.bankcard.data.model.entities.CountryEntity
+import com.nuzhnov.bankcard.data.model.api.BankApiModel
+import com.nuzhnov.bankcard.data.model.api.CountryApiModel
+import com.nuzhnov.bankcard.data.model.api.NumberApiModel
 import com.nuzhnov.bankcard.data.model.entities.BankEntity
 import com.nuzhnov.bankcard.data.model.entities.CardEntity
-import com.nuzhnov.bankcard.domain.model.Card
-import com.nuzhnov.bankcard.domain.model.Number
-import com.nuzhnov.bankcard.domain.model.Country
+import com.nuzhnov.bankcard.data.model.entities.CountryEntity
+import com.nuzhnov.bankcard.data.model.entities.NumberEntity
 import com.nuzhnov.bankcard.domain.model.Bank
+import com.nuzhnov.bankcard.domain.model.Card
+import com.nuzhnov.bankcard.domain.model.Country
+import com.nuzhnov.bankcard.domain.model.Number
 
 fun Card.toEntity() = CardEntityModel(
     cardEntity = CardEntity(
@@ -68,7 +68,7 @@ fun NumberApiModel.toModel() = Number(
     isUsingLuhn = isUsingLuhn
 )
 
-fun CountryApiModel.toModel() : Country? {
+fun CountryApiModel.toModel(): Country? {
     return if (number == null) {
         null
     } else {

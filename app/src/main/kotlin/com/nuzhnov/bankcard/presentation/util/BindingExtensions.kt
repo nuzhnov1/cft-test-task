@@ -10,7 +10,7 @@ import com.nuzhnov.bankcard.domain.model.Card
 import com.nuzhnov.bankcard.domain.model.Country
 import com.nuzhnov.bankcard.domain.model.Number
 
-fun CardInfoBinding.setCard(card: Card?)= run {
+fun CardInfoBinding.setCard(card: Card?) = run {
     val context = root.context
 
     bin.text = card?.bin.toString(context)

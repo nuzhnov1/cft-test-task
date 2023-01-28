@@ -4,8 +4,8 @@ import androidx.lifecycle.*
 import com.nuzhnov.bankcard.domain.model.Card
 import com.nuzhnov.bankcard.domain.usecase.GetCardByBinUseCase
 import com.nuzhnov.bankcard.domain.usecase.GetSavedCardsUseCase
-import com.nuzhnov.bankcard.domain.usecase.SaveCurrentCardUseCase
 import com.nuzhnov.bankcard.domain.usecase.RemoveAllCardsUseCase
+import com.nuzhnov.bankcard.domain.usecase.SaveCurrentCardUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,10 +1,10 @@
 package com.nuzhnov.bankcard.data.model
 
-import com.squareup.moshi.JsonClass
 import com.nuzhnov.bankcard.data.model.api.BankApiModel
 import com.nuzhnov.bankcard.data.model.api.CountryApiModel
 import com.nuzhnov.bankcard.data.model.api.NumberApiModel
 import com.nuzhnov.bankcard.domain.model.Type
+import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class CardApiModel(
