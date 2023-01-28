@@ -44,18 +44,19 @@
 
     <!-- card_info.xml -->
     <string name="unknown" translatable="false">\?</string>
+    <string name="binNumberLabel">BIN number</string>
     <string name="schemeLabel">Scheme / Network</string>
     <string name="typeLabel">Type</string>
-    <string name="debit">&lt;b>Debit&lt;/b> / Credit</string>
-    <string name="credit">Debit / &lt;b>Credit&lt;/b></string>
+    <string name="debit">&lt;b>Debit&lt;/b></string>
+    <string name="credit">&lt;b>Credit&lt;/b></string>
     <string name="unknownType">Unknown</string>
     <string name="bankLabel">Bank</string>
     <string name="bankName">Name: &lt;b>%1$s&lt;/b></string>
     <string name="bankCity">City: &lt;b>%1$s&lt;/b></string>
     <string name="brandLabel">Brand</string>
     <string name="prepaidLabel">Prepaid</string>
-    <string name="yes">&lt;b>Yes&lt;/b> / No</string>
-    <string name="no">Yes / &lt;b>No&lt;/b></string>
+    <string name="yes">&lt;b>Yes&lt;/b></string>
+    <string name="no">&lt;b>No&lt;/b></string>
     <string name="unknownAnswer">Unknown</string>
     <string name="cardNumberLabel">Card number</string>
     <string name="lengthLabel">Length</string>

@@ -13,6 +13,7 @@ import com.nuzhnov.bankcard.domain.model.Number
 fun CardInfoBinding.setCard(card: Card?)= run {
     val context = root.context
 
+    bin.text = card?.bin.toString(context)
     scheme.text = card?.scheme.toString(context)
     brand.text = card?.brand.toString(context)
     type.text = card?.type.toSpanned(context)

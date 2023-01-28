@@ -42,18 +42,19 @@
     <string name="successfullyRemovedAllCards">Все локально сохранённые карты успешно удалены!</string>
 
     <!-- card_info.xml -->
+    <string name="binNumberLabel">БИН номер</string>
     <string name="schemeLabel">Схема / Сеть</string>
     <string name="typeLabel">Тип</string>
-    <string name="debit">&lt;b>Дебитовая&lt;/b> / Кредитная</string>
-    <string name="credit">Дебитовая / &lt;b>Кредитная&lt;/b></string>
+    <string name="debit">&lt;b>Дебитовая&lt;/b></string>
+    <string name="credit">&lt;b>Кредитная&lt;/b></string>
     <string name="unknownType">Неизвестно</string>
     <string name="bankLabel">Банк</string>
     <string name="bankName">Название: &lt;b>%1$s&lt;/b></string>
     <string name="bankCity">Город: &lt;b>%1$s&lt;/b></string>
     <string name="brandLabel">Бренд</string>
     <string name="prepaidLabel">С предоплатой</string>
-    <string name="yes">&lt;b>Да&lt;/b> / Нет</string>
-    <string name="no">Да / &lt;b>Нет&lt;/b></string>
+    <string name="yes">&lt;b>Да&lt;/b></string>
+    <string name="no">&lt;b>Нет&lt;/b></string>
     <string name="unknownAnswer">Неизвестно</string>
     <string name="cardNumberLabel">Номер карты</string>
     <string name="lengthLabel">Длина</string>

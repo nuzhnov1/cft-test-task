@@ -1,140 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <TableRow
-        android:layout_marginBottom="@dimen/marginBetweenRows"
-        android:weightSum="3">
+    <LinearLayout
+        android:id="@+id/binLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/binNumberLabel" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/schemeLabel" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="4000400040004000" />
+    </LinearLayout>
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/scheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                tools:text="Mir" />
-        </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems">
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/typeLabel" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/debit" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bankLabel" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bankName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Name: Tinkoff" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bankCity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="City: Moscow" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bankUrl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                tools:text="www.tinkoff.ru"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bankPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="phone"
-                tools:text="8 800 555-777-8"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
-    </TableRow>
-
-    <TableRow
-        android:layout_marginBottom="@dimen/marginBetweenRows"
-        android:weightSum="3">
-
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/brandLabel" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                tools:text="Visa/Dankort" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_span="2"
-            android:layout_weight="2"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/prepaidLabel" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/prepaid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/yes" />
-        </LinearLayout>
-    </TableRow>
-
-    <TableRow android:weightSum="3">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:id="@+id/cardNumberLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/typeLayout"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/cardNumberLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/cardNumberLabel" />
 
@@ -143,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/luhnLabel"
                 app:layout_constraintTop_toBottomOf="@id/cardNumberLabel"
                 android:text="@string/lengthLabel" />
 
@@ -159,7 +71,8 @@
                 android:id="@+id/length"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/lengthLabel"
+                app:layout_constraintEnd_toEndOf="@id/lengthLabel"
                 app:layout_constraintTop_toBottomOf="@id/lengthLabel"
                 android:textStyle="bold"
                 tools:text="16" />
@@ -169,51 +82,190 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/luhnLabel"
+                app:layout_constraintEnd_toEndOf="@id/luhnLabel"
                 app:layout_constraintTop_toBottomOf="@id/luhnLabel"
-                tools:text="@string/yes" />
+                tools:text="@string/no" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:layout_span="2"
-            android:layout_weight="2"
+            android:id="@+id/typeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/cardNumberLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardNumberLayout"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/countryLabel" />
+                android:text="@string/typeLabel" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryIconAndName"
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/debit" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems">
+
+        <LinearLayout
+            android:id="@+id/schemeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/schemeLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/scheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                tools:text="🇩🇰 Denmark" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryCoordinates"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="(latitude: 56, longitude: 10)" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Number: 204" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryShortcut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Shortcut: DK" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryCurrency"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Currency: DKK" />
+                tools:text="Mir" />
         </LinearLayout>
-    </TableRow>
-</TableLayout>
+
+        <LinearLayout
+            android:id="@+id/brandLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/schemeLayout"
+            app:layout_constraintEnd_toStartOf="@id/prepaidLayout"
+            app:layout_constraintTop_toTopOf="@id/schemeLayout"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/brandLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="Visa/Dankort" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/prepaidLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/schemeLayout"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prepaidLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/prepaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/yes" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/bankLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:text="@string/bankLabel" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bankName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Name: Tinkoff" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bankCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="City: Moscow" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bankUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            tools:text="www.tinkoff.ru"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bankPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="phone"
+            tools:text="8 800 555-777-8"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/countryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBetweenItems"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:text="@string/countryLabel" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryIconAndName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="🇩🇰 Denmark" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryCoordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="(latitude: 56, longitude: 10)" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Number: 204" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryShortcut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Shortcut: DK" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countryCurrency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Currency: DKK" />
+    </LinearLayout>
+</LinearLayout>
