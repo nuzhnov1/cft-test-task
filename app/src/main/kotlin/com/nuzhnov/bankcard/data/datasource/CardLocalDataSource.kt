@@ -4,7 +4,7 @@ import com.nuzhnov.bankcard.data.dao.IBankDao
 import com.nuzhnov.bankcard.data.dao.ICountryDao
 import com.nuzhnov.bankcard.data.dao.ICardDao
 import com.nuzhnov.bankcard.data.model.CardEntityModel
-import com.nuzhnov.bankcard.di.annotations.IoDispatcher
+import com.nuzhnov.bankcard.di.annotation.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -22,7 +22,7 @@ class CardLocalDataSource @Inject constructor(
         cardDao.getByBin(bin)
     }
 
-    suspend fun isCardExist(bin: String) = getCardByBin(bin) != null
+    suspend fun isCardExist(bin: String): Boolean = getCardByBin(bin) != null
 
     fun getAllCards(): Flow<List<CardEntityModel>> = cardDao
         .getAll()
@@ -53,6 +53,8 @@ class CardLocalDataSource @Inject constructor(
         cardDao.updateAll(card.cardEntity)
     }
 
+    // For the future
+    @Suppress("unused")
     suspend fun deleteCard(card: CardEntityModel) = withContext(ioDispatcher) {
         val countryNumber = card.countryEntity?.number
         val bankName = card.bankEntity?.name

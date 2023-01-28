@@ -3,6 +3,7 @@
     <dimen name="layoutPadding">4dp</dimen>
     <dimen name="marginBetweenItems">8dp</dimen>
     <dimen name="dividerBigThickness">2dp</dimen>
-    <dimen name="dividerSmallThickness">1d</dimen>
+    <dimen name="dividerSmallThickness">1dp</dimen>
+    <dimen name="marginBetweenCards">@dimen/marginBetweenItems</dimen>
     <dimen name="marginBetweenRows">8dp</dimen>
 </resources>

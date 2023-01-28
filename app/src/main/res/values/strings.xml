@@ -10,11 +10,14 @@
     <string name="binLabel">BIN number of bank card</string>
     <string name="binInputHint">Bank card number</string>
     <string name="binInputHelper">The first 4–8 digits of the bank card</string>
-    <string name="binErrorMessage">The entered value is not a number</string>
-    <string name="clearInput">Clear input</string>
-    <string name="searchCard">Search card</string>
-    <string name="saveCard">Save card</string>
+    <string name="binErrorMessage">The entered value is not a bank card number</string>
+    <string name="clearInputButtonText">Clear input</string>
+    <string name="searchCardButtonText">Search card</string>
+    <string name="saveCardButtonText">Save card</string>
     <string name="currentCardInfoLabel">Information about current card</string>
+    <string name="successfullyFoundedStatus">Card founded!</string>
+    <string name="notFoundedStatus">Card not founded!</string>
+    <string name="successfullySavedStatus">The card has been saved successfully!</string>
 
     <!-- Errors -->
     <string name="http400Error">Error: bad request</string>
@@ -37,18 +40,23 @@
     <string name="warningMessage">Are you sure to want remove all saved cards?</string>
     <string name="confirmRemoving">Remove</string>
     <string name="cancelRemoving">Cancel</string>
+    <string name="successfullyRemovedAllCards">All local saved cards have been removed successfully!</string>
 
     <!-- card_info.xml -->
+    <string name="unknown">\?</string>
     <string name="schemeLabel">Scheme / Network</string>
     <string name="typeLabel">Type</string>
-    <string name="debit"><b>Debit</b> / Credit</string>
-    <string name="credit">Debit / <b>Credit</b></string>
+    <string name="debit">&lt;b>Debit&lt;/b> / Credit</string>
+    <string name="credit">Debit / &lt;b>Credit&lt;/b></string>
+    <string name="unknownType">Unknown</string>
     <string name="bankLabel">Bank</string>
-    <string name="bankNameAndCity">%1$s, %2$s</string>
+    <string name="bankName">Name: &lt;b>%1$s&lt;/b></string>
+    <string name="bankCity">City: &lt;b>%1$s&lt;/b></string>
     <string name="brandLabel">Brand</string>
     <string name="prepaidLabel">Prepaid</string>
-    <string name="yes"><b>Yes</b> / No</string>
-    <string name="no">Yes / <b>No</b></string>
+    <string name="yes">&lt;b>Yes&lt;/b> / No</string>
+    <string name="no">Yes / &lt;b>No&lt;/b></string>
+    <string name="unknownAnswer">Unknown</string>
     <string name="cardNumberLabel">Card number</string>
     <string name="lengthLabel">Length</string>
     <string name="luhnLabel">Luhn</string>

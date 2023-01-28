@@ -55,11 +55,16 @@
                 android:text="@string/bankLabel" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bankNameAndCity"
+                android:id="@+id/bankName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                tools:text="Tinkoff, Moscow" />
+                tools:text="Name: Tinkoff" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/bankCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="City: Moscow" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/bankUrl"

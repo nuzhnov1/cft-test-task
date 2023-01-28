@@ -7,11 +7,11 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 
+@Suppress("unused")
 @Module
 @InstallIn(ViewModelComponent::class)
 interface RepositoryModule {
 
     @Binds
     fun provideRepository(repositoryImpl: RepositoryImpl): IRepository
-
 }

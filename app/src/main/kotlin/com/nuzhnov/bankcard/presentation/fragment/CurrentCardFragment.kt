@@ -1,23 +1,27 @@
 package com.nuzhnov.bankcard.presentation.fragment
 
+import android.content.Context
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
+import android.view.inputmethod.InputMethodManager
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.snackbar.Snackbar
 import com.nuzhnov.bankcard.R
 import com.nuzhnov.bankcard.databinding.CurrentCardFragmentBinding
 import com.nuzhnov.bankcard.domain.model.Card
-import com.nuzhnov.bankcard.presentation.util.isNumber
+import com.nuzhnov.bankcard.presentation.util.isBankCardNumber
 import com.nuzhnov.bankcard.presentation.util.setCard
+import com.nuzhnov.bankcard.presentation.util.showIndefiniteSnackbar
 import com.nuzhnov.bankcard.presentation.util.toString
 import com.nuzhnov.bankcard.presentation.viewmodel.CardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
+@Suppress("unused_parameter")
 @WithFragmentBindings
 @AndroidEntryPoint
 class CurrentCardFragment : Fragment() {
@@ -37,11 +41,12 @@ class CurrentCardFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.binNumberField.editText?.doOnTextChanged(::onBinNumberChanged)
+        binding.binNumberField.editText?.doAfterTextChanged(::onBinNumberChanged)
         binding.searchButton.setOnClickListener(::onSearchButtonClick)
         binding.addButton.setOnClickListener(::onSaveButtonClick)
 
         viewModel.currentCard.observe(requireActivity(), ::onResultReceived)
+        binding.cardInfo.setCard(viewModel.currentCard.value?.getOrNull())
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
@@ -49,9 +54,10 @@ class CurrentCardFragment : Fragment() {
 
         binding.binNumberField.editText?.text?.apply {
             val savedBinNumber = savedInstanceState?.getString(BIN_NUMBER_KEY)
-
-            clear()
-            savedBinNumber?.apply { append(this) }
+            savedBinNumber?.apply {
+                clear()
+                append(this)
+            }
         }
     }
 
@@ -65,34 +71,72 @@ class CurrentCardFragment : Fragment() {
         _binding = null
     }
 
-    private fun onBinNumberChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+    private fun onBinNumberChanged(text: Editable?) {
         val input = text?.toString()
 
-        if (input != null && !input.isNumber()) {
+        if (!input.isNullOrBlank() && !input.isBankCardNumber()) {
             binding.binNumberField.error = requireContext().getString(R.string.binErrorMessage)
         } else {
             binding.binNumberField.error = null
         }
     }
 
-    private fun onSearchButtonClick(view: View) {
-        val binNumber = binding.binNumberField.editText?.text?.toString()
-        val isNotError = binding.binNumberField.error != null
-
-        if (isNotError && binNumber != null) {
-            viewModel.getCardByBin(binNumber)
+    private fun hideSoftInputFromWindow() {
+        val activity = requireActivity()
+        activity.currentFocus?.apply {
+            val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(windowToken, 0)
         }
     }
 
-    private fun onSaveButtonClick(view: View) { viewModel.saveCurrentCard() }
+    private fun onSearchButtonClick(view: View) {
+        val input = binding.binNumberField.editText?.text?.toString()
+        val isNotError = binding.binNumberField.error == null
+
+        if (isNotError && !input.isNullOrBlank()) {
+            hideSoftInputFromWindow()
+            viewModel.getCardByBin(input)
+        }
+    }
+
+    private fun onSaveButtonClick(view: View) {
+        hideSoftInputFromWindow()
+        viewModel.saveCurrentCard().invokeOnCompletion {
+            showIndefiniteSnackbar(
+                context = requireContext(),
+                parent = binding.root,
+                message = R.string.successfullySavedStatus
+            )
+        }
+    }
 
     private fun onResultReceived(result: Result<Card?>) = result
-        .onSuccess { binding.cardInfo.setCard(it) }
-        .onFailure {
-            val context = requireContext()
-            val errorString = it.toString(context)
+        .onSuccess { card ->
+            binding.cardInfo.setCard(card)
 
-            Snackbar.make(context, binding.root, errorString, Snackbar.LENGTH_INDEFINITE).show()
+            if (card == null) {
+                showIndefiniteSnackbar(
+                    context = requireContext(),
+                    parent = binding.root,
+                    message = R.string.notFoundedStatus
+                )
+            } else {
+                showIndefiniteSnackbar(
+                    context = requireContext(),
+                    parent = binding.root,
+                    message = R.string.successfullyFoundedStatus
+                )
+            }
+        }
+        .onFailure { error ->
+            val context = requireContext()
+            val errorString = error.toString(context)
+
+            showIndefiniteSnackbar(
+                context = context,
+                parent = binding.root,
+                message = errorString
+            )
         }
 
 

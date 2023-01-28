@@ -1,3 +1,3 @@
 package com.nuzhnov.bankcard.presentation.util
 
-fun CharSequence.isNumber() = !Regex("\\d+").matches(this)
+fun CharSequence.isBankCardNumber() = Regex("\\d+").matches(this) && length <= 16

@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Bank")
 data class BankEntity(
     @PrimaryKey val name: String,
-    val url: String,
-    val phone: String,
-    val city: String
+    val url: String?,
+    val phone: String?,
+    val city: String?
 )

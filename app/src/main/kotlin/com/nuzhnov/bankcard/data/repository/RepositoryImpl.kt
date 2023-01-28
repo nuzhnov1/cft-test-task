@@ -6,12 +6,14 @@ import com.nuzhnov.bankcard.data.mapper.toEntity
 import com.nuzhnov.bankcard.data.mapper.toModel
 import com.nuzhnov.bankcard.data.model.CardEntityModel
 import com.nuzhnov.bankcard.domain.model.Card
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
+@ViewModelScoped
 class RepositoryImpl @Inject constructor(
     private val cardLocalDataSource: CardLocalDataSource,
     private val cardRemoteDataSource: CardRemoteDataSource
@@ -27,7 +29,7 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getCardByBin(bin: String): Result<Card?> = mutex.withLock {
         // If a new card has been requested
-        if ((currentCard == null) || (currentCard != null && currentCard?.bin != bin)) {
+        if ((currentCard == null) || (currentCard?.bin != bin)) {
             // Looking bank card among the previously saved ones
             val localResult = cardLocalDataSource.getCardByBin(bin)
 
@@ -36,7 +38,7 @@ class RepositoryImpl @Inject constructor(
                 Result.success(currentCard)
             } else {
                 // If bank card was not founded among the previously saved ones
-                // then making request to the service
+                // then making request to the remote service
                 val remoteResult = cardRemoteDataSource.getCardByBin(bin)
 
                 remoteResult.map {

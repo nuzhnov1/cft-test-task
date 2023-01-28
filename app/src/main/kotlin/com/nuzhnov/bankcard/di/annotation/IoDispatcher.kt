@@ -1,4 +1,4 @@
-package com.nuzhnov.bankcard.di.annotations
+package com.nuzhnov.bankcard.di.annotation
 
 import javax.inject.Qualifier
 

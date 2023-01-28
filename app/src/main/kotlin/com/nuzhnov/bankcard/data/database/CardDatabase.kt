@@ -11,7 +11,7 @@ import com.nuzhnov.bankcard.data.model.entities.CountryEntity
 
 @Database(
     entities = [BankEntity::class, CountryEntity::class, CardEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class CardDatabase : RoomDatabase() {

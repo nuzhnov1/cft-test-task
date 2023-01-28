@@ -1,9 +1,9 @@
 package com.nuzhnov.bankcard.di
 
-import com.nuzhnov.bankcard.data.adapter.CardTypeAdapter
 import com.nuzhnov.bankcard.configuration.SERVICE_URL
-import com.squareup.moshi.Moshi
+import com.nuzhnov.bankcard.data.adapter.TypeAdapter
 import com.nuzhnov.bankcard.data.api.ICardApi
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +30,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideMosh(): Moshi = Moshi.Builder()
-        .add(CardTypeAdapter)
+        .add(TypeAdapter)
         .build()
 }

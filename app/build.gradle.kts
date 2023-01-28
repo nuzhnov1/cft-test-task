@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -16,6 +18,7 @@ android {
         versionName = "1.0"
 
         multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,7 +54,7 @@ dependencies {
     implementation("com.google.android.material:material:1.7.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("androidx.room:room-runtime:2.5.0")
     implementation("androidx.room:room-ktx:2.5.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
@@ -61,6 +64,7 @@ dependencies {
     // For Android API level < 21
     implementation("androidx.multidex:multidex:2.0.1")
 
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
     kapt("androidx.room:room-compiler:2.5.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 

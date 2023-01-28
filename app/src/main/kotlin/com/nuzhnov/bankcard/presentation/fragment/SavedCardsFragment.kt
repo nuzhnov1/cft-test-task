@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -14,10 +14,12 @@ import com.nuzhnov.bankcard.R
 import com.nuzhnov.bankcard.databinding.SavedCardsFragmentBinding
 import com.nuzhnov.bankcard.domain.model.Card
 import com.nuzhnov.bankcard.presentation.adapter.CardAdapter
+import com.nuzhnov.bankcard.presentation.util.showIndefiniteSnackbar
 import com.nuzhnov.bankcard.presentation.viewmodel.CardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
+@Suppress("unused_parameter")
 @WithFragmentBindings
 @AndroidEntryPoint
 class SavedCardsFragment : Fragment() {
@@ -38,8 +40,6 @@ class SavedCardsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        cardAdapter = CardAdapter()
-
         initializeSavedCardList()
         binding.removeAllCards.setOnClickListener(::onRemoveCardsButtonClick)
         viewModel.savedCards.observe(requireActivity(), ::onSavedCardsUpdated)
@@ -51,18 +51,24 @@ class SavedCardsFragment : Fragment() {
     }
 
     private fun initializeSavedCardList() = binding.savedCardsList.apply {
+        cardAdapter = CardAdapter()
         adapter = cardAdapter
         layoutManager = LinearLayoutManager(
-            context, LinearLayoutManager.VERTICAL, false
+            requireContext(),
+            LinearLayoutManager.VERTICAL,
+            false
         )
 
-        val itemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
-        val dividerDrawable = ResourcesCompat.getDrawable(
-            resources, R.drawable.divider_drawable, context.theme
+        val itemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        val dividerDrawable = AppCompatResources.getDrawable(
+            requireContext(),
+            R.drawable.divider_shape
         )
 
-        dividerDrawable?.apply { itemDecoration.setDrawable(this) }
-        addItemDecoration(itemDecoration)
+        dividerDrawable?.apply {
+            itemDecoration.setDrawable(this)
+            addItemDecoration(itemDecoration)
+        }
     }
 
     private fun onRemoveCardsButtonClick(view: View) {
@@ -71,7 +77,13 @@ class SavedCardsFragment : Fragment() {
             .setIcon(R.drawable.ic_baseline_warning_24)
             .setMessage(R.string.warningMessage)
             .setPositiveButton(R.string.confirmRemoving) { dialog, _ ->
-                viewModel.removeAllCards()
+                viewModel.removeAllCards().invokeOnCompletion {
+                    showIndefiniteSnackbar(
+                        context = requireContext(),
+                        parent = binding.root,
+                        message = R.string.successfullyRemovedAllCards
+                    )
+                }
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.cancelRemoving) { dialog, _ -> dialog.cancel() }

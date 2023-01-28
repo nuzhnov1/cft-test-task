@@ -68,22 +68,34 @@ fun NumberApiModel.toModel() = Number(
     isUsingLuhn = isUsingLuhn
 )
 
-fun CountryApiModel.toModel() = Country(
-    number = number,
-    shortcut = shortcut,
-    name = name,
-    emojiIcon = emojiIcon,
-    currency = currency,
-    latitude = latitude,
-    longitude = longitude
-)
+fun CountryApiModel.toModel() : Country? {
+    return if (number == null) {
+        null
+    } else {
+        Country(
+            number = number,
+            shortcut = shortcut,
+            name = name,
+            emojiIcon = emojiIcon,
+            currency = currency,
+            latitude = latitude,
+            longitude = longitude
+        )
+    }
+}
 
-fun BankApiModel.toModel() = Bank(
-    name = name,
-    url = url,
-    phone = phone,
-    city = city
-)
+fun BankApiModel.toModel(): Bank? {
+    return if (name == null) {
+        null
+    } else {
+        Bank(
+            name = name,
+            url = url,
+            phone = phone,
+            city = city
+        )
+    }
+}
 
 
 fun CardEntityModel.toModel() = Card(

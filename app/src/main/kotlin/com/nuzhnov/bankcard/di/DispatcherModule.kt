@@ -1,6 +1,6 @@
 package com.nuzhnov.bankcard.di
 
-import com.nuzhnov.bankcard.di.annotations.IoDispatcher
+import com.nuzhnov.bankcard.di.annotation.IoDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
