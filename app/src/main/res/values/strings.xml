@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bank card info</string>
+    <string name="app_name" translatable="false">Bank card info</string>
 
     <!-- activity_main.xml -->
     <string name="tabLayoutDescription">Current tab</string>
@@ -43,7 +43,7 @@
     <string name="successfullyRemovedAllCards">All local saved cards have been removed successfully!</string>
 
     <!-- card_info.xml -->
-    <string name="unknown">\?</string>
+    <string name="unknown" translatable="false">\?</string>
     <string name="schemeLabel">Scheme / Network</string>
     <string name="typeLabel">Type</string>
     <string name="debit">&lt;b>Debit&lt;/b> / Credit</string>
@@ -59,9 +59,9 @@
     <string name="unknownAnswer">Unknown</string>
     <string name="cardNumberLabel">Card number</string>
     <string name="lengthLabel">Length</string>
-    <string name="luhnLabel">Luhn</string>
+    <string name="luhnLabel" translatable="false">Luhn</string>
     <string name="countryLabel">Country</string>
-    <string name="countryIconAndName">%1$s %2$s</string>
+    <string name="countryIconAndName" translatable="false">%1$s %2$s</string>
     <string name="countryCoordinates">(latitude: &lt;b>%1$s&lt;/b>, longitude: &lt;b>%2$s&lt;/b>)</string>
     <string name="countryNumber">Number: &lt;b>%1$s&lt;/b></string>
     <string name="countryShortcut">Shortcut: &lt;b>%1$s&lt;/b></string>

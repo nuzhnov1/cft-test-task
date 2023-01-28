@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- activity_main.xml -->
+    <string name="tabLayoutDescription">Текущая вкладка</string>
+    <string name="currentCardFragmentTitle">Текущая карта</string>
+    <string name="savedCardsFragmentTitle">Локально сохранённые карты</string>
+
+    <!-- current_card_fragment.xml -->
+    <string name="binLabel">БИН-номер банковской карты</string>
+    <string name="binInputHint">Номер банковской карты</string>
+    <string name="binInputHelper">Первые 4–8 цифр банковской-карты</string>
+    <string name="binErrorMessage">Введённое значение не является номером банковской карты</string>
+    <string name="clearInputButtonText">Очистить ввод</string>
+    <string name="searchCardButtonText">Найти карту</string>
+    <string name="saveCardButtonText">Сохранить карту</string>
+    <string name="currentCardInfoLabel">Информация о текущей карте</string>
+    <string name="successfullyFoundedStatus">Карта найдена!</string>
+    <string name="notFoundedStatus">Карта не найдена!</string>
+    <string name="successfullySavedStatus">Карта успешно сохранена!</string>
+
+    <!-- Errors -->
+    <string name="http400Error">Ошибка: неверный запрос</string>
+    <string name="http401Error">Ошибка: неавторизованный запрос</string>
+    <string name="http403Error">Ошибка: запрещённый запрос</string>
+    <string name="http429Error">Ошибка: достигнут лимит запросов к сервису</string>
+    <string name="http500Error">Ошибка: внутренняя ошибка на стороне сервиса</string>
+    <string name="http502Error">Ошибка: проблема со шлюзом на стороне сервиса</string>
+    <string name="http503Error">Ошибка: сервис недоступен</string>
+    <string name="http504Error">Ошибка: таймаут шлюза на стороне сервиса</string>
+    <string name="httpOtherError">Ошибка: проблема с HTTP-соединением. Сообщение ошибки: %1$s</string>
+    <string name="invalidResponseError">Ошибка: неизвестный формат ответа сервера</string>
+    <string name="networkError">Ошибка: проблема с сетевым соединением. Сообщение ошибки: %1$s</string>
+    <string name="otherError">Ошибка: %1$s</string>
+
+    <!-- saved_cards_fragment.xml -->
+    <string name="savedCardsTitle">Локально сохранённые карты</string>
+    <string name="removeAllCards">Удалить все локально сохранённые карты</string>
+    <string name="warningTitle">Подтвердите ваши действия</string>
+    <string name="warningMessage">Вы действительно хотите удалить все локально сохранённые карты?</string>
+    <string name="confirmRemoving">Удалить</string>
+    <string name="cancelRemoving">Отмена</string>
+    <string name="successfullyRemovedAllCards">Все локально сохранённые карты успешно удалены!</string>
+
+    <!-- card_info.xml -->
+    <string name="schemeLabel">Схема / Сеть</string>
+    <string name="typeLabel">Тип</string>
+    <string name="debit">&lt;b>Дебитовая&lt;/b> / Кредитная</string>
+    <string name="credit">Дебитовая / &lt;b>Кредитная&lt;/b></string>
+    <string name="unknownType">Неизвестно</string>
+    <string name="bankLabel">Банк</string>
+    <string name="bankName">Название: &lt;b>%1$s&lt;/b></string>
+    <string name="bankCity">Город: &lt;b>%1$s&lt;/b></string>
+    <string name="brandLabel">Бренд</string>
+    <string name="prepaidLabel">С предоплатой</string>
+    <string name="yes">&lt;b>Да&lt;/b> / Нет</string>
+    <string name="no">Да / &lt;b>Нет&lt;/b></string>
+    <string name="unknownAnswer">Неизвестно</string>
+    <string name="cardNumberLabel">Номер карты</string>
+    <string name="lengthLabel">Длина</string>
+    <string name="countryLabel">Страна</string>
+    <string name="countryCoordinates">(Широта: &lt;b>%1$s&lt;/b>, Долгота: &lt;b>%2$s&lt;/b>)</string>
+    <string name="countryNumber">Номер страны: &lt;b>%1$s&lt;/b></string>
+    <string name="countryShortcut">Сокращение: &lt;b>%1$s&lt;/b></string>
+    <string name="countryCurrency">Валюта: &lt;b>%1$s&lt;/b></string>
+</resources>
